@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnStartMusic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btnStart Music Player service">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btnStopMusic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btnStop Music Player service">
+
+
+    </Button>
+
+    <Button
+        android:id="@+id/btnStartFibo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btnStart Fibonacci Service">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btnStopFibo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btnStop Fibonacci Service">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btnStartGPS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btnStart GPS Tracking Service">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btnStopGPS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btnStop GPS Tracking Service">
+
+    </Button>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ScrollView>
+
+</LinearLayout>
