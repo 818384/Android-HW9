@@ -11,7 +11,7 @@
         android:id="@+id/btnStartMusic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="btnStart Music Player service">
+        android:text="Start Music Player service">
 
     </Button>
 
@@ -19,7 +19,7 @@
         android:id="@+id/btnStopMusic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="btnStop Music Player service">
+        android:text="Stop Music Player service">
 
 
     </Button>
@@ -28,7 +28,7 @@
         android:id="@+id/btnStartFibo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="btnStart Fibonacci Service">
+        android:text="Start Fibonacci Service">
 
     </Button>
 
@@ -36,7 +36,7 @@
         android:id="@+id/btnStopFibo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="btnStop Fibonacci Service">
+        android:text="Stop Fibonacci Service">
 
     </Button>
 
@@ -44,7 +44,7 @@
         android:id="@+id/btnStartGPS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="btnStart GPS Tracking Service">
+        android:text="Start GPS Tracking Service">
 
     </Button>
 
@@ -52,7 +52,7 @@
         android:id="@+id/btnStopGPS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="btnStop GPS Tracking Service">
+        android:text="Stop GPS Tracking Service">
 
     </Button>
 

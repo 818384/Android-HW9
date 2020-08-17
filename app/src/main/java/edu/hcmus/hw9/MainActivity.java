@@ -1,5 +1,6 @@
 package edu.hcmus.hw9;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,10 +11,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.core.app.ActivityCompat;
+
 public class MainActivity extends Activity implements View.OnClickListener {
 
     private TextView tvMsg;
-    private BroadcastReceiver broadcastReceiver;
+    private BroadcastReceiver broadcastReceiver = new EmbeddedBroadcastReceiver();
     private Intent musicPlayerIntent, fibonacciIntent, gpsTrackingIntent;
 
     @Override
@@ -34,11 +37,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
         fibonacciIntent = new Intent(this, FibonacciService.class);
         gpsTrackingIntent = new Intent(this, GPSTrackingService.class);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         IntentFilter fiboFilter = new IntentFilter("edu.hcmus.fibo");
         IntentFilter gpsFilter = new IntentFilter("edu.hcmus.gps");
-        broadcastReceiver = new EmbeddedBroadcastReceiver();
         registerReceiver(broadcastReceiver, fiboFilter);
         registerReceiver(broadcastReceiver, gpsFilter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(broadcastReceiver);
     }
 
     @Override
@@ -58,6 +71,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             stopService(fibonacciIntent);
         }
         if (view.getId() == R.id.btnStartGPS) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 444);
             Log.e("MAIN", "onClick: start GPS");
             startService(gpsTrackingIntent);
         } else if (view.getId() == R.id.btnStopGPS) {

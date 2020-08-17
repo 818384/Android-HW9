@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class FibonacciService extends Service {
-    boolean isRunning = true;
+    private ComputeFibonacciRecursivelyTask asyncTask;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -35,7 +35,16 @@ public class FibonacciService extends Service {
 
     @Override
     public void onStart(Intent intent, int startId) {
-        new ComputeFibonacciRecursivelyTask().execute(20, 50);
+        asyncTask = new ComputeFibonacciRecursivelyTask();
+        asyncTask.execute(20, 50);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        asyncTask.cancel(true);
+        Log.e("FibonacciService", "onDestroy");
+        Log.e("FibonacciService", "AsyncTask stopped");
     }
 
     public Integer fibonacci(Integer n){
@@ -65,6 +74,11 @@ public class FibonacciService extends Service {
             sendBroadcast(fibonacciIntent);
             Message msg = handler.obtainMessage(5, data);
             handler.sendMessage(msg);
+        }
+
+        @Override
+        protected void onCancelled(Integer integer) {
+            super.onCancelled(integer);
         }
     }
 }
