@@ -22,7 +22,7 @@ public class MusicPlayerService extends Service {
     public void onCreate() {
         Toast.makeText(this, "MusicPlayerService created", Toast.LENGTH_LONG).show();
         Log.e("MusicPlayerService", "onCreate");
-        player = MediaPlayer.create(this, R.raw.cardigan);
+        player = MediaPlayer.create(this, R.raw.intro);
     }
 
     @Override
